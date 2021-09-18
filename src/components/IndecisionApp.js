@@ -63,7 +63,7 @@ class IndecisionApp extends React.Component {
 
   handleCloseModal = () => {
     this.setState(() => ({ selectedOption: undefined }));
-  }
+  };
 
   render() {
     const title = 'Indecision';
@@ -71,20 +71,24 @@ class IndecisionApp extends React.Component {
     return (
       <div>
         <Header title={title} subTitle={subTitle} />
-        <Action
-          hasOptions={this.state.options.length > 0}
-          handlePick={this.handlePick}
-        />
-        <Options
-          options={this.state.options}
-          handleDeleteOptions={this.handleDeleteOptions}
-          handleDeleteOption={this.handleDeleteOption}
-        />
-        <AddOptions handleAddOption={this.handleAddOption} />
-        <OptionModal
-        selectedOption={this.state.selectedOption}
-        handleCloseModal={this.handleCloseModal}
+        <div className='container'>
+          <Action
+            hasOptions={this.state.options.length > 0}
+            handlePick={this.handlePick}
+          />
+          <div className='widget'>
+            <Options
+              options={this.state.options}
+              handleDeleteOptions={this.handleDeleteOptions}
+              handleDeleteOption={this.handleDeleteOption}
+            />
+            <AddOptions handleAddOption={this.handleAddOption} />
+          </div>
+        </div>
 
+        <OptionModal
+          selectedOption={this.state.selectedOption}
+          handleCloseModal={this.handleCloseModal}
         />
       </div>
     );

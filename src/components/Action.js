@@ -5,6 +5,7 @@ class Action extends React.Component {
     return (
       <div>
         <button
+          className='big-button'
           onClick={this.props.handlePick}
           disabled={!this.props.hasOptions}
         >
